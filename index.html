@@ -1,1 +1,98 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta property="fb:app_id" content="" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>Shorten anti-Spam link</title>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/mdb.min.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+<style>
+     .md-form .form-control:disabled, .md-form .form-control[readonly] {
+    border-bottom: 1px solid #bdbdbd;
+    color: #b1b1b1;
+}
+#copy,#ketqua{display:none;}
+.card-header {
+    padding: .75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: rgb(63, 81, 181);
+    border-bottom: 1px solid rgba(0,0,0,.125);
+    color: #fff;
+}
+  </style>
+</head>
+<body>
+<div class="container">
+<br>
+<div class="card">
+<div class="card-header">
+Shorten anti-spam Facebook link
+</div>
+<div class="card-body">
+<div class="md-form">
+<div class="col-md-12 mb-12">
+<input type="text" class="form-control" name="linkcanrutgon" id="linkcanrutgon" placeholder="Enter the link to shorten" required>
+</div>
+</div>
+<div class="md-form" id="ketqua">
+<div class="col-md-12 mb-12">
+<input id="messagess" type="text" placeholder="The link after shortening will be displayed here" class="form-control" readonly>
+</div></div><center>
+<div class="md-form">
+<div class="col-md-12 mb-12">
+<button onclick="if (!window.__cfRLUnblockHandlers) return false; rutgon()" id="submit" class="btn btn-primary" data-cf-modified-5745b7e67a58fcbf942fd184-="">Shorten the link</button><button id="copy" onclick="if (!window.__cfRLUnblockHandlers) return false; copy()" class="btn btn-danger" data-cf-modified-5745b7e67a58fcbf942fd184-="">Copy link</button></div></div>
+</center>
+<center>
+</center>
+<hr>
+<h5 class="card-title">Introduction to shorten link service</h5>
+<p class="card-text">Link shortening utility is designed with 2 layers of website loading to help you limit your website being blocked from sharing on social networks, and help you pass to share links on social networks without being detected, blocking links.</p>
+</div>
+</div>
+</div>
+<script type="5745b7e67a58fcbf942fd184-text/javascript" src="js/jquery-3.4.1.min.js"></script>
+<script type="5745b7e67a58fcbf942fd184-text/javascript" src="js/popper.min.js"></script>
+<script type="5745b7e67a58fcbf942fd184-text/javascript" src="js/bootstrap.min.js"></script>
+<script type="5745b7e67a58fcbf942fd184-text/javascript" src="js/mdb.min.js"></script>
+<script type="5745b7e67a58fcbf942fd184-text/javascript">
+function rutgon(){
+$('#submit').prop('disabled', true);
+$("#submit").text("Please wait...");
+document.getElementById("copy").style.display = "none";
+document.getElementById("ketqua").style.display = "none";
+var link=$("#linkcanrutgon").val();
+        $.ajax({
+            type: "POST",
+            url: "design5s.php",
+            data: {action:'rutgon',link:link},
+            dataType: "JSON",
+             success: function(data) {
+             $("#messagess").val(data);
+             $('#submit').prop('disabled', false);
+             $("#submit").text("Shorten the link");
+             $("#linkcanrutgon").val("");
+             document.getElementById("copy").style.display = "-webkit-inline-box";
+             document.getElementById("ketqua").style.display = "block";
+            //$("#messagess").addClass("alert alert-success");
+            },
+            error: function(err) {
+            $("#messagess").val(data);
+            //$("#messagess").addClass("alert alert-danger");
+            }
+        });
+}
+  </script>
+<script type="5745b7e67a58fcbf942fd184-text/javascript">
+  function copy() {
+  var copyText = document.getElementById("messagess");
+  copyText.select();
+  document.execCommand("copy");
+  alert("Copied shortened link.");
+}
+  </script>
+<script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="5745b7e67a58fcbf942fd184-|49" defer=""></script></body>
+</html>
